@@ -19,8 +19,7 @@ Route::middleware(['auth','user'])->group(function(){
     Route::get('/hub', Hub::class)->name('hub');
 });
 
-Route::get('/admin', AdminDashboard::class)->name('admin');
-// Route::middleware(['auth', 'admin'])->group(function () {
-//         Route::get('/admin', AdminDashboard::class)->name('admin.dashboard');
-// });
+Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/admin', AdminDashboard::class)->name('admin.dashboard');
+});
     
