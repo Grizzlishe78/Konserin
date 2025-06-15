@@ -1,7 +1,8 @@
 @section('title', 'Halaman Home')
 <div>
     <div class="banner">
-        <img src="" alt="banner">
+        <img src="{{ asset('Assets/HomePage.png') }}" alt="Gambar" />
+
     </div>
 
     <!-- List All Event Section -->

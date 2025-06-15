@@ -6,7 +6,7 @@
                 <p class="text-sm text-gray-600">{{ \Illuminate\Support\Str::limit($event->description, 100) }}</p>
                 @if($event->image)
                     <x-slot:figure>
-                         <img src="{{ $event->image }}" class="w-full max-h-[700px] object-cover rounded-lg" />
+                       <img src="{{ url('image/' . $event->id) }}" alt="Event Image" class="w-full max-h-[700px] object-cover rounded-lg" />
                     </x-slot:figure>
                 @endif
                 <x-slot:actions separator>

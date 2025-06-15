@@ -15,7 +15,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('location')->nullable();
-            $table->text('image')->nullable();  // kolom gambar event
+            $table->longblob('image')->nullable(); 
             $table->timestamps();
         });
     }

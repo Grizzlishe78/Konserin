@@ -7,7 +7,11 @@ use App\Livewire\App\Home;
 use App\Livewire\App\Hub;
 use App\Livewire\Auth\Login;
 use App\Livewire\auth\Register;
+use App\Models\Event;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
+
+
 
 
 Route::get('/login', Login::class)->name('login');
@@ -23,3 +27,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/admin', AdminDashboard::class)->name('admin.dashboard');
 });
     
+Route::get('/image/{id}', function ($id) {
+    $event = Event::findOrFail($id);
+    return Response::make($event->image, 200, [
+        'Content-Type' => 'image/jpeg', 
+        'Content-Disposition' => 'inline; filename="event.jpg"',
+    ]);
+});
